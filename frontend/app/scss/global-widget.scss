@@ -1,0 +1,22 @@
+@import 'variables';
+@import "../../vendor/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../../vendor/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import 'mixins';
+
+//new icon font and font, update all widgets and change to new font, then delete old fonts
+@include font-face('TuiWidgets', 'assets/fonts/TUITypeLt_LATN_W_Rg');
+@include font-face('TuiWidgets', 'assets/fonts/TUITypeLt_LATN_W_Bd', bold);
+@include font-face('TuiWidgetIcons', 'assets/fonts/tuiicons-16');
+
+.tui-widget {
+    @import 'reset';
+    @import 'grid';
+    @import 'responsive-utilities';
+
+    font-family: TuiWidgets, sans-serif;
+    position: relative;
+
+    [data-ng-click] {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<!--[if lte IE 9]><html class="no-js lte-ie9"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
+<head>
+    <title>WidgetLoader Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='maximum-scale=1.0,width=device-width,initial-scale=1.0'>
+    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">-->
+    <script src="widgetloader.js"></script>
+    <!--witch shit-->
+    <style>
+        [data-saved-search-change] {
+            width: 200px;
+            position: absolute !important;
+            left: 300px;
+            top: 0;
+        }
+
+        h1 {
+            color: darkred;
+        }
+
+        button {
+            font-size: 16px;
+            color: darkblue;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .added {
+            position: relative;
+        }
+
+        .added [data-saved-search-change] {
+            position: relative !important;
+        }
+
+        footer {
+            background-color: #34495e;
+            padding: 30px 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+    <div class="container">
+        <noscript>
+            <div class="nojsbox">
+                <p class="center"><b>JavaScript wird benötigt.</b><br>Bitte aktivieren Sie
+                    Javascript in Ihrem Browser,<br>um unser Portal nutzen zu können.</p>
+            </div>
+        </noscript>
+        <section>
+            <h1>widget-seat-reservation</h1>
+            <hr>
+            <div class="tui-widget" data-widget="seat-reservation" data-seat-reservation></div>
+        </section>
+    </div>
+    <footer>
+        <button id="btn-seat-reservation" onclick="window.tuiWidgetLoader.startLoadingWidgets(['seat-reservation'])"><b>load : seat-reservation</b></button>
+    </footer>
+    <script src="/ms/fe/seat-reservation/angular.min.js"></script>
+    <script src="/ms/fe/seat-reservation/angular-translate.min.js"></script>
+    <script src="/ms/fe/seat-reservation/angular-translate-loader-static-files.min.js"></script>
+</body>
+</html>

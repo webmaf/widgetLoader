@@ -1,0 +1,63 @@
+@mixin font-face($name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($name);
+    src: url($path + '.woff') format('woff'), url($path + '.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// =============================================================================
+// Breakpoints
+// =============================================================================
+
+$screen-sm: 768px;
+$screen-sm-min: $screen-sm;
+$screen-tablet: $screen-sm-min;
+$screen-md: 992px;
+$screen-md-min: $screen-md;
+$screen-desktop: $screen-md-min;
+$screen-lg: 1200px;
+$screen-lg-min: $screen-lg;
+$screen-lg-desktop: $screen-lg-min;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+// Breakpoints
+//
+// Sets the breakpoints for the different devices
+
+// xs -> extra small screens, phone, default
+// sm -> small screen, tablet
+// md -> medium screen, desktop
+// lg -> large screen, wide desktop
+
+@mixin breakpoint($device) {
+  @if ($device == xs) {
+    // until 767
+    @media only screen and (max-width: $screen-xs-max) {
+      @content;
+    }
+  } @else if ($device == sm) {
+    // from 768px
+    @media only screen and (min-width: $screen-sm-min) {
+      @content;
+    }
+  } @else if ($device == md) {
+    // from 992px
+    @media only screen and (min-width: $screen-md-min) {
+      @content;
+    }
+  } @else if ($device == lg) {
+    // from 1200px - open end
+    @media only screen and (min-width: $screen-lg-min) {
+      @content;
+    }
+  } @else {
+    //custom breakpoint
+    @media only screen and (min-width: $device) {
+      @content;
+    }
+  }
+}

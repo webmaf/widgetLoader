@@ -1,0 +1,163 @@
+<!doctype html>
+<!--[if lte IE 9]><html class="no-js lte-ie9"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
+<head>
+    <title>WidgetLoader Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name='viewport' content='maximum-scale=1.0,width=device-width,initial-scale=1.0'>
+    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">-->
+    <script src="widgetloader.js"></script>
+    <!-- check when widgetloader multiple load-->
+    <script src="widgetloader.js"></script>
+    <script src="widgetloader.js"></script>
+    <!--witch shit-->
+    <style>
+        [data-saved-search-change] {
+            width: 200px;
+            position: absolute !important;
+            left: 300px;
+            top: 0;
+        }
+
+        h1 {
+            color: darkred;
+        }
+
+        button {
+            font-size: 16px;
+            color: darkblue;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .added {
+            position: relative;
+        }
+
+        .added [data-saved-search-change] {
+            position: relative !important;
+        }
+
+        footer {
+            background-color: #34495e;
+            padding: 30px 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        function aw(btn) {
+            var widget = document.getElementsByClassName('tui-widget');
+
+            for (var i = 0, l = widget.length; i < l; i++) {
+                widget[i].removeAttribute('data-disable');
+            }
+        }
+        function removeWidget(widgetName) {
+//            var widgets = document.getElementsByClassName('tui-widget');
+//
+//            for (var i = 0, l = widgets.length; i < l; i++) {
+//                console.log(widgets[i]);
+//                if (widgets[i] != 'undefined') {
+//                    widgets[i].parentNode.removeChild(widgets[i]);
+//                }
+//            }
+            jQuery('[data-widget="' + widgetName + '"]').remove();
+        }
+        function addWidget() {
+            var div = document.createElement('div');
+
+            div.setAttribute('class', 'tui-widget');
+            div.setAttribute('data-widget', 'saved-search');
+            div.setAttribute('data-saved-search-change', '');
+            div.setAttribute('data-id', '183972');
+            div.setAttribute('data-bookingcode', 'HER82008');
+            div.setAttribute('data-startdate', '2015-04-15');
+            div.setAttribute('data-travelproducttype', 'PACKAGE');
+            div.setAttribute('data-url', 'sensimar.html');
+
+            document.querySelector('.added').appendChild(div);
+        }
+        function rw(btn, tag) {
+//            window.tuiWidgetLoader.startLoadingWidgets(['search']);
+//            window.tuiWidgetLoader.startLoadingWidgets(['saved-search']);
+            window.tuiWidgetLoader.startLoadingWidgets(tag);
+        }
+    </script>
+</head>
+<body>
+    <header>
+    </header>
+    <div class="container">
+        <noscript>
+            <div class="nojsbox">
+                <p class="center"><b>JavaScript wird benötigt.</b><br>Bitte aktivieren Sie
+                    Javascript in Ihrem Browser,<br>um unser Portal nutzen zu können.</p>
+            </div>
+        </noscript>
+        <section>
+            <!--widget SavedSearch-->
+            <h1>saved-search</h1>
+            <hr>
+            <p>Widgets sind aktiv</p>
+            <h4 style="position: relative;">
+                Superaffengeiles Elefantenbrothotel:
+                <div class="tui-widget" data-widget="saved-search" data-saved-search-change data-id="135409" data-startdate="2015-05-02" data-operator="XTUI" data-travelproducttype="PACKAGE" data-url="cactus.html"></div>
+            </h4>
+            <h4 style="position: relative;">
+                Naturapfelfarbenes Himmelschleusentor:
+                <div class="tui-widget" data-widget="saved-search" data-saved-search-change data-id="4210" data-startdate="2015-04-19" data-operator="TUI" data-travelproducttype="PACKAGE" data-url="viverde.html"></div>
+            </h4>
+            <h4 style="position: relative;">
+                Totalbescheuerte Rumpelkammerlaube:
+                <div class="tui-widget" data-widget="saved-search" data-saved-search-change data-id="183972" data-startdate="2015-04-15" data-operator="TUI" data-travelproducttype="PACKAGE" data-url="sensimar.html"></div>
+            </h4>
+            <p>Widgets sind deaktiviert <b>data-disable</b></p>
+            <h4 style="position: relative;">
+                Superaffengeiles Elefantenbrothotel:
+                <div class="tui-widget" data-widget="saved-search" data-saved-search-change data-disable data-id="1" data-startdate="2015-05-02" data-operator="XTUI" data-travelproducttype="PACKAGE" data-url="cactus.html"></div>
+            </h4>
+            <h4 style="position: relative;">
+                Naturapfelfarbenes Himmelschleusentor:
+                <div class="tui-widget" data-widget="saved-search" data-saved-search-change data-disable data-id="2" data-startdate="2015-04-19" data-operator="TUI" data-travelproducttype="PACKAGE" data-url="viverde.html"></div>
+            </h4>
+            <h4 style="position: relative;">
+                Totalbescheuerte Rumpelkammerlaube:
+                <div class="tui-widget" data-widget="saved-search" data-saved-search-change data-disable data-id="3" data-startdate="2015-04-15" data-operator="TUI" data-travelproducttype="PACKAGE" data-url="sensimar.html"></div>
+            </h4>
+            <div>
+                <div class="open-wishlist">Zeige Merkliste</div>
+            </div>
+            <div class="tui-widget" data-widget="saved-search" data-saved-search-list="overlay"></div>
+        </section>
+        <section>
+            <!--widget TuiSearch-->
+            <h1>widget-search</h1>
+            <hr>
+            <div class="tui-widget" data-widget="search" data-tui-search></div>
+        </section>
+        <section>
+            <!--widget SR-->
+            <h1>widget-seat-reservation</h1>
+            <hr>
+            <div class="tui-widget" data-widget="seat-reservation" data-seat-reservation></div>
+        </section>
+        <section>
+            <!--manually added widgets after full page load-->
+            <h1>added widgets</h1>
+            <div class="added">
+            </div>
+        </section>
+    </div>
+    <footer>
+        <button onclick="aw(this)"><b>active widgets</b></button>
+        <button id="btn-search" onclick="rw(this, ['search'])"><b>load : search</b></button>
+        <button id="btn-saved-search" onclick="rw(this, ['saved-search'])"><b>load : saved-search</b></button>
+        <button id="btn-widget-all" onclick="rw(this, '')"><b>load : all</b></button>
+        <button id="btn-remove" onclick="removeWidget('saved-search')"><b>removeWidget : saved-search</b></button>
+        <button id="btn-add" onclick="addWidget()"><b>addWidget : saved-search</b></button>
+    </footer>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>-->
+</body>
+</html>

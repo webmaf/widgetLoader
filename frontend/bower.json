@@ -1,0 +1,19 @@
+{
+  "name": "widgetloader",
+  "version": "0.0.1",
+  "authors": [
+    "Kathrin Bartels <kathrin.bartels@tui.com>"
+  ],
+  "description": "Bower json widgetloader",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5"
+  }
+}
